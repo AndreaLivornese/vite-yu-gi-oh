@@ -1,6 +1,7 @@
 <script>
 import Header from "./components/Header.vue";
 import grid from "./components/Grid.vue";
+import {store} from "../src/store";
 
 export default{
 
@@ -12,7 +13,17 @@ export default{
   data(){
     return{
 
+      store,
+
     }
+  },
+  mounted(){
+    // chiamata alla API
+    axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0').then(function(rep){
+      console.dir(rep);
+
+      store.cards = rep.data.data;
+    });
   }
 
 }

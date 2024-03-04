@@ -21,9 +21,9 @@ export default{
         Found tot cards
     </div>
 
-    <div class="inner-grid">
+    <div id="inner-grid">
 
-        
+
 
     </div>
 
@@ -52,6 +52,12 @@ export default{
         font-weight: bold;
         font-size:20px;
     }
+
+    .inner-grid{
+        display: flex;
+        gap:35px;
+    }
+
 }
 
 </style>
