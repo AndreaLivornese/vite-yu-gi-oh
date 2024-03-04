@@ -32,8 +32,6 @@ header{
     display:flex;
     gap:10px;
 
-    background-color: white;
-
     #logo-headder{
         width: 70px;
         height: 70px;

@@ -1,10 +1,12 @@
 <script>
 import Header from "./components/Header.vue";
+import grid from "./components/Grid.vue";
 
 export default{
 
   components:{
     Header,
+    grid,
   },
 
   data(){
@@ -20,9 +22,41 @@ export default{
 <template>
 
   <Header></Header>
+
+  <main>
+
+    <div class="container">
+
+      <div id="select-box">
+        <select id="card-select">
+          <option value="allen">Allen</option>
+        </select>
+      </div>
+
+      <grid></grid>
+
+    </div>
+
+  </main>
  
 </template>
 
 <style lang="scss">
+
+@use '/src/styles/variables.scss' as *;
+@use '/src/styles/mixins.scss' as *;
+
+  main{
+    background-color: $primary;
+
+    .container{
+      @include container;
+    }
+
+    #select-box{
+      padding: 26px 18px;
+    }
+  }
+
 
 </style>
