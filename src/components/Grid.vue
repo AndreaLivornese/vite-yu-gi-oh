@@ -1,11 +1,17 @@
 <script>
+import cardItem from "./CardItem.vue"
+import {store} from "../store";
 
 export default{
     name:"grid",
 
+    components:{
+        cardItem,
+    },
+
   data(){
     return{
-
+        store,
     }
   }
 
@@ -23,7 +29,7 @@ export default{
 
     <div id="inner-grid">
 
-
+        <cardItem v-for="currentCard in store.cards" :card="currentCard"></cardItem>
 
     </div>
 
@@ -53,9 +59,10 @@ export default{
         font-size:20px;
     }
 
-    .inner-grid{
+    #inner-grid{
         display: flex;
         gap:35px;
+        flex-flow: row wrap;
     }
 
 }

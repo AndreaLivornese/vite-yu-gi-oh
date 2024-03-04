@@ -1,7 +1,7 @@
 <script>
 
 export default{
-    name:"card",
+    name:"cardItem",
 
 
     props:{
@@ -23,14 +23,14 @@ export default{
 <div class="card">
 
     <div class="card-image">
-        <img src="" alt="">
+        <img :src="card.card_images[0].image_url" alt="immagine della carta">
     </div>
     <div class="card-info">
         <div class="card-name">
-
+            {{ card.name }}
         </div>
         <div class="card-type">
-            
+            {{ card.archetype }}
         </div>
     </div>
   
@@ -46,12 +46,22 @@ export default{
 .card{
     width: calc(100% / 5 - 35px / 5 * 4);
 
-    img{
-        width: 100%;
+    .card-image{
+
+        img{
+            display: block;
+            width: 100%;
+        }
     }
 
+
     .card-info{
-        padding:35px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding:25px 20px 0;
+        background-color: $primary;
+        min-height: 130px;
 
 
         .card-name{
@@ -59,11 +69,12 @@ export default{
             color:white;
             text-transform: uppercase;
             line-height: 1.5em;
-            font-size:20px;
+            font-size:16px;
         }
 
         .card-type{
-            font-size:24px
+            text-align: center;
+            font-size:20px
         }
     }
 }
