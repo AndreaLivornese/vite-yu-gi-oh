@@ -40,6 +40,7 @@ header{
     h1{
         color:black;
         font-size: 44px;
+        font-weight: 400;
     }
 }
 

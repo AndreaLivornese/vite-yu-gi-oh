@@ -24,7 +24,7 @@ export default{
 <div class="grid">
 
     <div id="top-grid">
-        Found tot cards
+        Found {{store.cards.length}} cards
     </div>
 
     <div id="inner-grid">

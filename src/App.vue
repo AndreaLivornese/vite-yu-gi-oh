@@ -66,6 +66,16 @@ export default{
 
     #select-box{
       padding: 26px 18px;
+
+      select{
+        width: 140px;
+        height: 35px;
+
+        border-radius: 8px;
+
+        background-color: white;
+        color:black;
+      }
     }
   }
 
