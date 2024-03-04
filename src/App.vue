@@ -1,9 +1,10 @@
 <script>
+import Header from "./components/Header.vue";
 
 export default{
 
   components:{
-
+    Header,
   },
 
   data(){
@@ -17,6 +18,8 @@ export default{
 </script>
 
 <template>
+
+  <Header></Header>
  
 </template>
 
