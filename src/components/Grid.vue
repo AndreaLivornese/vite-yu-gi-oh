@@ -24,7 +24,7 @@ export default{
 <div class="grid">
 
     <div id="top-grid">
-        Found {{store.cards.length}} cards
+        Found {{store.cardsNumber}} cards
     </div>
 
     <div id="inner-grid">

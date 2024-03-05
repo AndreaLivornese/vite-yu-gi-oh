@@ -24,6 +24,7 @@ export default{
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0').then(function(rep){
       
       store.cards = rep.data.data;
+      store.cardsNumber = rep.data.meta.current_rows;
       console.dir(store.cards);
     });
 
@@ -38,10 +39,13 @@ export default{
     
     filterForArchetype(){
       console.log(store.archetypeSelected);
-    //   axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0' + "&archetype=" + store.archetypeSelected).then(function(rep){
+      axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0' + "&archetype=" + store.archetypeSelected).then(function(rep){
       
-    //   console.dir(rep);
-    // });
+      store.cards = rep.data.data;
+      store.cardsNumber = rep.data.meta.current_rows;
+      console.log(store.cardsNumber)
+      console.log(rep)
+    });
 
     }
 
