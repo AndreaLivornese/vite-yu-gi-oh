@@ -2,12 +2,14 @@
 import Header from "./components/Header.vue";
 import grid from "./components/Grid.vue";
 import {store} from "../src/store";
+import AppSelect from "./components/AppSelect.vue";
 
 export default{
 
   components:{
     Header,
     grid,
+    AppSelect,
   },
 
   data(){
@@ -24,6 +26,25 @@ export default{
       store.cards = rep.data.data;
       console.dir(store.cards);
     });
+
+    axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php').then(function(rep){
+      
+      store.archetype = rep.data;
+      console.dir(store.archetype);
+    });
+
+  },
+  methods:{
+    
+    filterForArchetype(){
+      console.log(store.archetypeSelected);
+    //   axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0' + "&archetype=" + store.archetypeSelected).then(function(rep){
+      
+    //   console.dir(rep);
+    // });
+
+    }
+
   }
 
 }
@@ -38,11 +59,7 @@ export default{
 
     <div class="container">
 
-      <div id="select-box">
-        <select id="card-select">
-          <option value="allen">Allen</option>
-        </select>
-      </div>
+      <AppSelect @changeArchetype=" filterForArchetype() "></AppSelect>
 
       <grid></grid>
 
@@ -62,20 +79,6 @@ export default{
 
     .container{
       @include container;
-    }
-
-    #select-box{
-      padding: 26px 18px;
-
-      select{
-        width: 140px;
-        height: 35px;
-
-        border-radius: 8px;
-
-        background-color: white;
-        color:black;
-      }
     }
   }
 
