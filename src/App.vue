@@ -24,7 +24,7 @@ export default{
     axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0').then(function(rep){
       
       store.cards = rep.data.data;
-      store.cardsNumber = rep.data.meta.current_rows;
+      store.cardsNumber = rep.data.meta.total_rows;
       console.dir(store.cards);
     });
 
@@ -42,7 +42,7 @@ export default{
       axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0' + "&archetype=" + store.archetypeSelected).then(function(rep){
       
       store.cards = rep.data.data;
-      store.cardsNumber = rep.data.meta.current_rows;
+      store.cardsNumber = rep.data.meta.total_rows;
       console.log(store.cardsNumber)
       console.log(rep)
     });
